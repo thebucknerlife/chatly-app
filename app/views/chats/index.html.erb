@@ -1,0 +1,12 @@
+<h1>All of your chats!</h1>
+
+<ul>
+  <% current_user.chats.each do |c| %>
+    <div>
+      <h2>Chat</h2>
+      <p><%= c.created_at %></p>
+      <p>Members: <%= Membership.where(chat_id: c).count %></p>
+      <%= link_to "Go to chat", chat_path(c) %>
+    </div>
+  <% end %>
+</ul>

@@ -1,0 +1,8 @@
+<h1>New Chat</h1>
+
+<%= simple_form_for @chat do |f| %>
+  Who do you want to invite?
+  <%= f.association :users, label: false, as: :check_boxes %>
+  <br>
+  <%= f.submit %>
+<% end %>
