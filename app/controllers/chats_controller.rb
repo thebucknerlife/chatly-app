@@ -23,6 +23,7 @@ class ChatsController < ApplicationController
   end
 
   def show
+    @chat = Chat.find(params[:id])
     @messages = Message.where(chat_id: params[:id])
     @message = Message.new(chat_id: params[:id])
   end
