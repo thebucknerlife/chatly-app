@@ -11,8 +11,11 @@ class ChatsController < ApplicationController
   end
 
   def create
-    @chat = Chat.new(chat_params)
+    @chat = Chat.new()
     if @chat.save
+      chat_params[:user_ids].each do |id|
+        Membership.create(user_id: id, chat_id: @chat.id)
+      end
       redirect_to chat_path(@chat)
     else
       render 'new'
@@ -27,6 +30,6 @@ class ChatsController < ApplicationController
 private
 
   def chat_params
-    params.require(:chat).permit(:members)
+    params.require(:chat).permit(:user_ids => [])
   end
 end

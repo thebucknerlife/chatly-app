@@ -1,5 +1,5 @@
 <h1>This is a chat!</h1>
-
+<%= link_to "See all chats", chats_path %>
 <ul>
   <% @messages.each do |m| %>
     <li><%= m.user.name %>: <%= m.body %></li>
