@@ -1,5 +1,5 @@
 <h1>All of your chats!</h1>
-
+<%= link_to "Create a new chat", new_chat_path %>
 <ul>
   <% current_user.chats.each do |c| %>
     <div>
