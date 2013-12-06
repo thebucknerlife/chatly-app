@@ -1,7 +1,14 @@
 <h1>This is a chat!</h1>
 
 <ul>
-  <%= messages.each do |m| %>
-    <li><%= m.text %></li>
+  <% @messages.each do |m| %>
+    <li><%= m.user.name %>: <%= m.body %></li>
   <% end %>
 </ul>
+
+<%= simple_form_for @message do |f| %>
+  <%= f.input :body %>
+  <%= f.input :chat_id, as: :hidden %>
+  <br>
+  <%= f.submit "Post a new message." %>
+<% end %>

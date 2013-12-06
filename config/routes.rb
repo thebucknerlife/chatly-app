@@ -8,5 +8,6 @@ Chatly::Application.routes.draw do
   resources :chats
   resources :users
   resources :sessions
+  resources :messages
 
 end
