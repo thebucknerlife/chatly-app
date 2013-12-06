@@ -6,7 +6,6 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to chat_path(@message.chat_id)
     else
-      render ''
     end
   end
 

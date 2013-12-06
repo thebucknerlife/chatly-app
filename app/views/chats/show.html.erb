@@ -1,19 +1,29 @@
-<h1>This is a chat!</h1>
-<%= link_to "See all chats", chats_path %>
-<ul>
-  <% @chat.users.each do |u| %>
-    <li><%= u.name %></li>
-  <% end %>
-</ul>
-<ul>
-  <% @messages.each do |m| %>
-    <li><%= m.user.name %>: <%= m.body %></li>
-  <% end %>
-</ul>
 
-<%= simple_form_for @message do |f| %>
-  <%= f.input :body %>
-  <%= f.input :chat_id, as: :hidden %>
-  <br>
-  <%= f.submit "Post a new message." %>
-<% end %>
+<div class="row">
+  <h1>This is a chat!</h1>
+  <%= link_to "See all chats", chats_path %>
+  <ul class="list-inline">
+    <% @chat.users.each do |u| %>
+      <li><span class="label label-default"><%= u.name %></span></li>
+    <% end %>
+  </ul>
+
+  <ul class="list-group">
+    <% @messages.each do |m| %>
+      <li class="list-group-item"><span class="label label-primary"><%= m.user.name %></span> <%= m.body %></li>
+    <% end %>
+  </ul>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+  <%= simple_form_for @message do |f| %>
+    <%= f.input :body %>
+    <%= f.input :chat_id, as: :hidden %>
+    <br>
+    <%= f.submit "Post a new message.", class: "btn btn-primary" %>
+  <% end %>
+  </div>
+  <div class="col-sm-2">
+  </div>
+</div>
+</div>
